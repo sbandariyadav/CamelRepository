@@ -18,12 +18,12 @@
 		</layout>
 	</appender>
 	<logger name="org.hibernate">
-		<level value="FINE" />
+		<level value="INFO" />
 		<appender-ref ref="console" />
 	</logger>
 	
 	<root>
-		<level value="FINE" />
+		<level value="INFO" />
 		<appender-ref ref="console" />
 	</root>
 

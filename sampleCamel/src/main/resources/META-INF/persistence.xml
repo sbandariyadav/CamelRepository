@@ -10,17 +10,14 @@
 		<class>camelRest.Sample</class>
 		<properties>
 			<!-- database config -->
-
+			<property name="hibernate.transaction.jta.platform"
+				value="org.apache.openejb.hibernate.OpenEJBJtaPlatform2" />
 
 			<property name="show_sql" value="true" />
 			<property name="hibernate.default_schema" value="public" />
 			<property name="tomee.jpa.factory.lazy" value="true" />
 			<!-- Connection Pool -->
-			<property name="hibernate.c3p0.min_size" value="5" />
-			<property name="hibernate.c3p0.max_size" value="20" />
-			<property name="hibernate.c3p0.timeout" value="500" />
-			<property name="hibernate.c3p0.max_statements" value="50" />
-			<property name="hibernate.c3p0.idle_test_period" value="2000" />
+
 		</properties>
 	</persistence-unit>
 </persistence>

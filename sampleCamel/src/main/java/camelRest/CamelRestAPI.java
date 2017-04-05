@@ -9,8 +9,10 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.Providers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,14 +24,22 @@ private static final Logger logger = LoggerFactory.getLogger(CamelRestAPI.class)
 	
 	@Inject
 	private SampleRestService sampleRestService;
+	@Context Providers providers;
 	
 	@GET
 	@Path(value = "/sample/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getSampleData(@PathParam("id") long id) {
-		Sample sample = sampleRestService.getSampleData(id);
+		System.out.println("**********"+id);
+		Sample sample = null;
+		try{
+		sample = sampleRestService.getSampleData(id);
+		System.out.println("(((((   "+Response.ok().entity(sample).build());
 		logger.info("after service call");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return Response.ok().entity(sample).build();
 	}
 	

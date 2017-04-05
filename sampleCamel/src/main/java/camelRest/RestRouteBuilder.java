@@ -9,7 +9,7 @@ public class RestRouteBuilder extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 		System.out.println("in rest route builder    *************************************");
-		from("servlet:///sample?servletName=CamelServlet&matchOnUriPrefix=true").to("cxfbean:Camel_Rest_API?providers=#JsonProvider");
+		from("servlet:///sample?servletName=CamelServlet&matchOnUriPrefix=true").to("cxfbean:Camel_Rest_API?providers=#JsonProvider&bus=#auaBus");
 	}
 
 }
